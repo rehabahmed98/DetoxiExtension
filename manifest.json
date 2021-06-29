@@ -13,13 +13,13 @@
     "default_popup": "popup.html"
 },
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["background.js","jquery.js"],
     "persistent": false
   },
   "content_scripts": [
     {
       "matches": ["http://www.twitter.com/*", "https://twitter.com/*"],
-      "js": ["jquery.js"],
+     "js": ["jquery.js", "contentScript.js"],
       "run_at": "document_end"
     }
   ],
@@ -29,7 +29,7 @@
     "tabs",
     "storage",
     "activeTab",
-    "http://localhost:3000/posts"
+    "http://gr21.eng.cu.edu.eg/predict"
   ],
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }

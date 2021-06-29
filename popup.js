@@ -1,6 +1,15 @@
 function detoxify() {
 
-    
+    //deal with newly loaded tweets
+    function DOMModificationHandler(){
+        $(this).unbind('DOMSubtreeModified.event1');
+        setTimeout(function(){
+            modifyDOM();
+            $('[data-testid="primaryColumn"]').bind('DOMSubtreeModified.event1',DOMModificationHandler);
+        },10);
+    }
+    $('[data-testid="primaryColumn"]').bind('DOMSubtreeModified.event1',DOMModificationHandler);
+
 
     function modifyDOM() {
         //You can play with your DOM here or check URL against your regex
