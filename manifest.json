@@ -1,0 +1,35 @@
+{
+  "name": "Detoxi",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "A Google Chrome Extension, which filters the toxic comments on twitter.",
+  "icons": { 
+    "16": "icon.png",
+    "48": "icon.png",
+     "128": "icon.png" 
+  },
+  "browser_action": {
+    "default_title": "Detoxi",
+    "default_popup": "popup.html"
+},
+  "background": {
+    "scripts": ["background.js","jquery.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://www.twitter.com/*", "https://twitter.com/*"],
+     "js": ["jquery.js", "contentScript.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "https://twitter.com/*",
+    "http://twitter.com/*",
+    "tabs",
+    "storage",
+    "activeTab",
+    "http://127.0.0.1:8000/predict"
+  ],
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
+}
