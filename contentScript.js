@@ -8,7 +8,6 @@ window.addEventListener("scroll", function() {
 
 
 
-window.addEventListener('popstate', listener);
 
 const pushUrl = (href) => {
   history.pushState({}, '', href);
@@ -27,9 +26,7 @@ function modifyDOM() {
         tweets:tweetsArray
     }))
 
-    $('[data-testid="tweet"]').each(function(index){
-        foundTweet = $(this).text();
-      
+
         if (!tweetsArray.includes(foundTweet)){
             tweetsArray.push(foundTweet);
             arrChanged=true
@@ -53,7 +50,6 @@ function modifyDOM() {
             // });
             // }
         }
-    });
 
 
     if (arrChanged==true){
